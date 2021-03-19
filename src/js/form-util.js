@@ -260,8 +260,8 @@ export function prepareInputs (formInputs, reasonInputs, reasonFieldsetsWrapper,
 
     const url = generateLink()
     $('#resultLink').classList.remove('hidden')
-    $('#linkToAttestation').href = url;
-    $('#linkToAttestation').textContent = window.location.href.split('?')[0] + url;
+    $('#linkToAttestation').href = window.location.href.split('#')[0] + url
+    $('#linkToAttestation').textContent = window.location.href.split('#')[0] + url;
   })
 }
 
@@ -314,7 +314,7 @@ export function generateLink () {
   let baseURL = '#generate'
 
   inputs.forEach(input => {
-    if (input && input.name && input.name !== 'field-datesortie' && input.name !== 'field-heuresortie') {
+    if (input && input.id && input.id !== 'field-datesortie' && input.id !== 'field-heuresortie') {
       if (input.type !== 'checkbox' && input.value && input.value.trim() !== '') {
         baseURL += '&' + input.id + '=' + input.value
       } else if (input.type === 'checkbox' && input.checked) {
