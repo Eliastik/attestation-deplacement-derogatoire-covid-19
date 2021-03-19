@@ -16,15 +16,15 @@
 <body>
     <main role="main">
         <div>
-            <h1>Covid-19 - Attestation de déplacement dérogatoire</h1>
-            <p>
+            <h2 class="pb-2 mt-4 mb-2"><i class="far fa-fw fa-file-alt"></i> Covid-19 - Attestation de déplacement dérogatoire</h2>
+            <p class="lead">
                 Cet outil vous permet de générer un lien vous permettant de générer automatiquement une attestation de déplacement dérogatoire avec l'heure mise à jour. Vous pouvez ainsi le garder et l'ajouter à l'écran d'accueil de votre appareil pour générer une attestation automatiquement.
                 Aucune donnée n'est conservée par le serveur.
             </p>
             <p>
                 Ce générateur est un fork basé sur le générateur officiel du gouvernement (<a href="https://media.interieur.gouv.fr/attestation-deplacement-derogatoire-covid-19/" target="_blank">disponible ici</a>).
             </p>
-            <p>
+            <p class="small">
                 Code source : <a href="https://github.com/Eliastik/attestation-deplacement-derogatoire-covid-19" class="github-link">GitHub</a>
             </p>
         </div>
@@ -49,13 +49,13 @@
                 </label>
             </div>
             <p class="text-center mt-5">
-                <button type="button" id="generate-btn" class="btn btn-primary btn-attestation">
+                <button type="button" id="generate-btn" class="btn btn-lg btn-info btn-attestation">
                   <span>
                     <i class="fa fa-file-pdf inline-block mr-1"></i>
                     Générer mon attestation
                   </span>
                 </button>
-                <button type="button" id="generate-link-btn" class="btn btn-primary btn-attestation">
+                <button type="button" id="generate-link-btn" class="btn btn-lg btn-primary btn-attestation">
                   <span>
                     <i class="fa fa-link inline-block mr-1"></i>
                     Générer mon lien
@@ -104,12 +104,13 @@
             <p class="footer-line" id="version"></p>
         </div>
 
-    <div class="alert  alert-info  d-none" id="update-alert">
-        Une nouvelle version est disponible. Cliquer sur le bouton pour l'obtenir.
-        <p class="text-right">
-            <button id="reload-btn" class="btn  btn-info">Mettre à jour</button>
-        </p>
-    </div>
+        <div class="alert  alert-info  d-none" id="update-alert">
+            Une nouvelle version est disponible. Cliquer sur le bouton pour l'obtenir.
+            <p class="text-right">
+                <button id="reload-btn" class="btn  btn-info">Mettre à jour</button>
+            </p>
+        </div>
+    </main>
 
     <script src="./js/main.js"></script>
 </body>

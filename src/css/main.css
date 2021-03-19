@@ -215,7 +215,6 @@ input[type=number] {
   display: block;
   margin: 0.75em;
   font-size: 0.9em;
-  color: #ffffff;
 }
 
 .footer-link:hover {
@@ -304,7 +303,7 @@ input[type=number] {
   bottom: 100px;
 }
 
-#snackbar.show, #snackbar-cleardata.show, , #snackbar-generating.show {
+#snackbar.show, #snackbar-cleardata.show, #snackbar-generating.show {
   opacity: 1;
 }
 
@@ -323,7 +322,7 @@ input[type=number] {
 }
 
 [id^="footnote"] {
-  margin: 30px auto;
+  margin: 5px auto;
   max-width: 1000px;
   font-size: 0.8em;
 }
