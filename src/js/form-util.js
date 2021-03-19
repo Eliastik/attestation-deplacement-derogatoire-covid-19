@@ -60,6 +60,7 @@ function validateAriaFields () {
 }
 
 function updateSecureLS (formInputs) {
+  return null; // Storage disabled
   if (wantDataToBeStored() === true) {
     secureLS.set('profile', getProfile(formInputs))
   } else {
@@ -182,6 +183,7 @@ export function prepareInputs (formInputs, reasonInputs, reasonFieldsetsWrapper,
   })
   $('#generate-btn').addEventListener('click', async (event) => {
     event.preventDefault()
+    contextWrapper.classList.remove('context-wrapper-error')
 
     if ($$('.targeted').length === 0) {
       contextWrapper.classList.add('context-wrapper-error')
@@ -234,11 +236,39 @@ export function prepareInputs (formInputs, reasonInputs, reasonFieldsetsWrapper,
       quarantineSubtitle.classList.toggle('hidden', false)
     }
   }))
+
+  $('#generate-link-btn').addEventListener('click', (event) => {
+    event.preventDefault()
+    $('#resultLink').classList.add('hidden')
+
+    if ($$('.targeted').length === 0) {
+      contextWrapper.classList.add('context-wrapper-error')
+    }
+
+    const reasons = getReasons(reasonInputs)
+    if (!reasons) {
+      reasonFieldsetsWrapper.classList.add('fieldset-error')
+      reasonAlerts.map(reasonAlert => reasonAlert.classList.remove('hidden'))
+      // reasonFieldsetsWrapper.scrollIntoView && reasonFieldsetsWrapper.scrollIntoView()
+      return
+    }
+
+    const invalid = validateAriaFields()
+    if (invalid) {
+      return
+    }
+
+    const url = generateLink()
+    $('#resultLink').classList.remove('hidden')
+    $('#linkToAttestation').href = url;
+    $('#linkToAttestation').textContent = window.location.href.split('?')[0] + url;
+  })
 }
 
 export function prepareForm () {
   const formInputs = $$('#form-profile input')
   const snackbar = $('#snackbar')
+  const snackbarGenerating = $('#snackbar-generating')
   const reasonInputs = [...$$('input[name="field-reason"]')]
   const reasonFieldsetsWrapper = $('.fieldset-wrapper')
   const reasonAlerts = $$('.msg-alert')
@@ -246,4 +276,52 @@ export function prepareForm () {
   const contextWrapper = $('.context-wrapper')
   setReleaseDateTime(releaseDateInput)
   prepareInputs(formInputs, reasonInputs, reasonFieldsetsWrapper, reasonAlerts, snackbar, releaseDateInput, contextWrapper)
+
+  const hourInput = $('#field-heuresortie')
+  const date = new Date()
+  if (hourInput) hourInput.value = date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()
+
+  if (window.location.hash && window.location.hash.length > 0) { // Si on est sur un lien généré
+    const data = decodeURIComponent(window.location.hash.substring(1, window.location.hash.length))
+
+    if (data) {
+      showSnackbar(snackbarGenerating, 5000)
+      const elements = data.split('&')
+
+      elements.forEach(element => {
+        const name = element.split('=')[0]
+        const value = element.split('=')[1]
+
+        if (name && name !== 'field-datesortie' && name !== 'field-heuresortie') {
+          if (!name.startsWith('[cb]') && value) {
+            const element = $('#' + name)
+            if (element) element.value = value
+          } else if (name.startsWith('[cb]') && value === 'true') {
+            const element = $('#' + name.split('[cb]')[1])
+            if (element) element.checked = true
+          }
+        }
+      })
+
+      const generateBtn = $('#generate-btn')
+      if (generateBtn) generateBtn.click()
+    }
+  }
+}
+
+export function generateLink () {
+  const inputs = $$('input')
+  let baseURL = '#generate'
+
+  inputs.forEach(input => {
+    if (input && input.name && input.name !== 'field-datesortie' && input.name !== 'field-heuresortie') {
+      if (input.type !== 'checkbox' && input.value && input.value.trim() !== '') {
+        baseURL += '&' + input.id + '=' + input.value
+      } else if (input.type === 'checkbox' && input.checked) {
+        baseURL += '&[cb]' + input.id + '=' + input.checked
+      }
+    }
+  })
+
+  return encodeURI(baseURL)
 }

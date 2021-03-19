@@ -1,78 +1,5 @@
-@font-face {
-  font-family: 'marianne-bold';
-  src: url('../fonts/marianne-bold-webfont.woff2') format('woff2'),
-       url('../fonts/marianne-bold-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'marianne-regular';
-  src: url('../fonts/marianne-regular-webfont.woff2') format('woff2'),
-       url('../fonts/marianne-regular-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-html {
-  background: white;
-}
-
-@supports (font: -apple-system-body) {
-  html {
-    font: -apple-system-body !important;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    background: #222;
-  }
-}
-
-body {
-    margin: 1.25em;
-    background: white;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #222;
-    }
-}
-
-form, #alert-print {
-    margin: 30px auto;
-    max-width: 400px;
-}
-
 h1 {
 	font-size: 2em;
-  color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-  h1 {
-    color: white;
-    background-color: white;
-    background: #222;
-  }
-}
-
-
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-  h1 {
-    font-size: 2.5em;
-  }
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  h1 {
-    font-size: 3em;
-  }
 }
 
 svg {
@@ -84,33 +11,8 @@ h1.flex.flex-wrap {
   flex-wrap: wrap;
 }
 
-@media (prefers-color-scheme: dark) {
-  h1.flex.flex-wrap {
-    border: 1px solid white;
-  }
-}
-
 h2 {
   font-size: large;
-  color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-  h2 {
-    color: white;
-  }
-}
-
-footer {
-  margin-top: 40px;
-  background: white;
-}
-
-
-@media (prefers-color-scheme: dark) {
-  footer {
-    background: #222;
-  }
 }
 
 canvas {
@@ -118,57 +20,8 @@ canvas {
   border-radius: .25rem;
 }
 
-a {
-  color: #000191;
-  text-decoration: underline;
-}
-
-@media (prefers-color-scheme: dark) {
-  a {
-    color: #A3A3FF;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  a.curfew-button {
-    color: white;
-    background-color: #43436B;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  #curfew-reason-fieldset.targeted {
-    color: white;
-    background-color: #43436B;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  #curfew-reason-fieldset.targeted.in-quarantine {
-    color: white;
-    background-color: #6B0B0B;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  #quarantine-reason-fieldset.targeted {
-    color: white;
-    background-color: #6B0B0B;
-  }
-}
-
-p {
-  color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-  p {
-    color: white;
-  }
-}
-
 .wrapper {
-  max-width: 800px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -180,32 +33,6 @@ p {
 #form-profile .form-radio-label .form-check-label {
   font-weight: 400;
   transform: translateY(-2px);
-}
-
-@media (prefers-color-scheme: dark) {
-  #form-profile .form-radio-label .form-check-label {
-    color: #ddd;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  label {
-    color: white;
-  }
-
-  .form-control::placeholder {
-    color: #aaa;
-  }
-
-  input, select, textarea, .form-control, .form-control:focus {
-    background: #333;
-    color: white;
-    border: 1px solid white;
-  }
-
-  .form-control:focus {
-    background: #555;
-  }
 }
 
 #form-generate .form-radio .form-check {
@@ -292,32 +119,6 @@ input[type=number] {
   height: 1em;
 }
 
-.logo {
-  width: 50%;
-}
-
-.covid-title {
-  display: flex;
-  align-items: center;
-  padding: 0.3em;
-  font-family: 'marianne-regular', Arial, Helvetica, sans-serif;
-  font-size: 0.50em;
-  color: #ffffff;
-  background-color: #000191;
-}
-
-@media (prefers-color-scheme: dark) {
-  .covid-title {
-    background: #2929ff;
-  }
-}
-
-@media (min-width: 992px) {
-  .covid-title {
-    flex-grow: 0;
-  }
-}
-
 .covid-subtitle {
   display: inline-flex;
   align-items: center;
@@ -345,7 +146,6 @@ input[type=number] {
 
 .msg-info {
   text-align: left;
-  color: #000000;
 }
 
 .msg-alert {
@@ -360,18 +160,6 @@ input[type=number] {
 }
 .text-bold {
   font-weight: bold;
-}
-
-@media (prefers-color-scheme: dark) {
-  .covid-subtitle {
-    background: #ad000c;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .msg-info {
-    color: white;
-  }
 }
 
 .btn-attestation {
@@ -395,51 +183,17 @@ input[type=number] {
 .github {
   font-size: 0.7em;
   text-align: center;
-  color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-  .github {
-    color: white
-  }
-}
-
-.github-link {
-  color: #000191;
-}
-
-@media (prefers-color-scheme: dark) {
-  .github-link {
-    color: #A3A3FF;
-  }
-}
-
-.github-link:hover {
-    text-decoration: underline;
 }
 
 .label-mi {
   text-align: center;
   font-size: 1em;
-  color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-  .label-mi {
-    color: white;
-  }
 }
 
 .validity {
   display: inline-flex;
   justify-content: center;
   width: 2em;
-}
-
-@media (prefers-color-scheme: dark) {
-  .validity {
-    color: #DDD;
-  }
 }
 
 .main-footer {
@@ -455,16 +209,6 @@ input[type=number] {
   margin: 0 auto;
   max-width: 500px;
   background: #222;
-}
-
-@media (prefers-color-scheme: dark) {
-  .main-footer {
-    background: #444;
-  }
-
-  .footer-links {
-      background: #444;
-  }
 }
 
 .footer-line {
@@ -497,100 +241,20 @@ input[type=number] {
     text-decoration: underline;
 }
 
-.confidentialite {
-  .cookies {
-    border-collapse: collapse;
-
-    td,
-    th {
-      border: 1px solid #000191;
-      padding: 8px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        td, th {
-            border-color: #A3A3FF;
-            color: white;
-        }
-    }
-
-    .header-row {
-      font-weight: bold;
-      color: #ffffff;
-      background-color: #000191;
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    .name-col {
-      font-weight: bold;
-      padding: 8px 16px;
-      color: #000191;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .name-col {
-        color: #A3A3FF;
-      }
-    }
-  }
-
-  .btn-wrapper {
-    display: flex;
-    justify-content: center;
-
-    .btn-generateur {
-      padding: 0.8em;
-      font-size: 1.2em;
-      font-weight: bold;
-      color: #ffffff;
-      background-color: #000191;
-      border-radius: 0.5em;
-      text-decoration: none;
-      color: #ffffff;
-    }
-
-  }
-  em {
-    font-size: .8rem;
-  }
-}
-
 .titre-2 {
   text-align: left;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #000191;
 }
 .titre-3 {
   text-align: left;
   font-size: 1.25rem;
   font-weight: bold;
-  color: #000000;
 }
 .titre-4 {
   text-align: left;
   font-size: 1rem;
   font-weight: bold;
-  color: #000000;
-}
-
-
-@media (prefers-color-scheme: dark) {
-    .titre-3 {
-        color: white;
-    }
-
-    .titre-4 {
-        color: white;
-    }
-    
-    }
-
-@media (prefers-color-scheme: dark) {
-  .titre-2 {
-    color: #A3A3FF;
-  }
 }
 
 @media (max-width: 800px){
@@ -619,7 +283,7 @@ input[type=number] {
   }
 }
 
-#snackbar, #snackbar-cleardata {
+#snackbar, #snackbar-cleardata, #snackbar-generating {
   min-width: 250px;
   color: #fff;
   text-align: center;
@@ -636,7 +300,11 @@ input[type=number] {
   transition: all 0.5s ease-in-out;
 }
 
-#snackbar.show, #snackbar-cleardata.show {
+#snackbar-generating {
+  bottom: 100px;
+}
+
+#snackbar.show, #snackbar-cleardata.show, , #snackbar-generating.show {
   opacity: 1;
 }
 
@@ -656,16 +324,8 @@ input[type=number] {
 
 [id^="footnote"] {
   margin: 30px auto;
-  max-width: 400px;
+  max-width: 1000px;
   font-size: 0.8em;
-  color: #000000;
-}
-
-@media (prefers-color-scheme: dark) {
-  [id^="footnote"] {
-    color:white;
-    background: #222;
-  }
 }
 
 #update-alert {
@@ -736,14 +396,16 @@ input[type=number] {
   display: block;
   width: 40%;
   text-decoration: none;
-  background: #DDF;
+  background: #DDF !important;
+  color: black !important;
 }
 
 .quarantine-button {
   display: block;
   width: 40%;
   text-decoration: none;
-  background: #FEE;
+  background: #FEE !important;
+  color: black !important;
 }
 
 #formgroup-storedata {
@@ -791,4 +453,8 @@ input[type=number] {
 .quarantine-subtitle,
 .curfew-subtitle {
   padding: 1rem 0;
+}
+
+.fieldset-wrapper {
+  color: black;
 }
