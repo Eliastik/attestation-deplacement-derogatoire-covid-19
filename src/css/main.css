@@ -35,6 +35,12 @@ canvas {
   transform: translateY(-2px);
 }
 
+.group-reason {
+  font-weight: 700;
+  text-decoration: underline;
+  margin-top: 2em;
+}
+
 #form-generate .form-radio .form-check {
   margin: 10px;
 }
@@ -452,8 +458,4 @@ input[type=number] {
 .quarantine-subtitle,
 .curfew-subtitle {
   padding: 1rem 0;
-}
-
-.fieldset-wrapper {
-  color: black;
 }
