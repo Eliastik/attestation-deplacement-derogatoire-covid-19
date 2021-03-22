@@ -304,11 +304,14 @@ export function prepareForm () {
         const value = element.split('=')[1]
 
         if (name && name !== 'field-datesortie' && name !== 'field-heuresortie') {
-          if (!name.startsWith('[cb]') && value) {
-            const element = $('#' + name)
+          if (name === 'context') {
+            const element = $(`.${value}-button`)
+            if (element) element.click()
+          } else if (!name.startsWith('[cb]') && value) {
+            const element = $(`#${name}`)
             if (element) element.value = value
           } else if (name.startsWith('[cb]') && value === 'true') {
-            const element = $('#' + name.split('[cb]')[1])
+            const element = $(`#${name.split('[cb]')[1]}`)
             if (element) element.checked = true
           }
         }
@@ -327,12 +330,14 @@ export function generateLink () {
   inputs.forEach(input => {
     if (input && input.id && input.id !== 'field-datesortie' && input.id !== 'field-heuresortie') {
       if (input.type !== 'checkbox' && input.value && input.value.trim() !== '') {
-        baseURL += '&' + input.id + '=' + input.value
+        baseURL += `&${input.id}=${input.value}`
       } else if (input.type === 'checkbox' && input.checked) {
-        baseURL += '&[cb]' + input.id + '=' + input.checked
+        baseURL += `&[cb]${input.id}=${input.checked}`
       }
     }
   })
+
+  baseURL += `&context=${context}`
 
   return encodeURI(baseURL)
 }
