@@ -400,7 +400,7 @@ input[type=number] {
 
 .curfew-button {
   display: block;
-  width: 40%;
+  width: 45%;
   text-decoration: none;
   background: #DDF !important;
   color: black !important;
@@ -408,7 +408,7 @@ input[type=number] {
 
 .quarantine-button {
   display: block;
-  width: 40%;
+  width: 45%;
   text-decoration: none;
   background: #FEE !important;
   color: black !important;
