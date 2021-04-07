@@ -56,12 +56,12 @@ function validateAriaFields () {
 }
 
 function updateSecureLS (formInputs) {
-  return null; // Storage disabled
-  if (wantDataToBeStored() === true) {
+  return null // Storage disabled
+  /* if (wantDataToBeStored() === true) {
     secureLS.set('profile', getProfile(formInputs))
   } else {
     clearSecureLS()
-  }
+  } */
 }
 
 function clearSecureLS () {
@@ -252,7 +252,7 @@ export function prepareInputs (formInputs, reasonInputs, reasonFieldsetsWrapper,
     const url = generateLink()
     $('#resultLink').classList.remove('hidden')
     $('#linkToAttestation').href = window.location.href.split('#')[0] + url
-    $('#linkToAttestation').textContent = window.location.href.split('#')[0] + url;
+    $('#linkToAttestation').textContent = window.location.href.split('#')[0] + url
   })
 }
 
