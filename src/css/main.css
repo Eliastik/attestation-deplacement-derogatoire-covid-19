@@ -24,6 +24,7 @@ canvas {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  width: 95%;
 }
 
 #form-profile .form-radio .form-check {
@@ -327,10 +328,14 @@ input[type=number] {
     margin-right: auto;
 }
 
-[id^="footnote"] {
+.footnote {
   margin: 5px auto;
   max-width: 1000px;
   font-size: 0.8em;
+}
+
+.footnote-bottom {
+  text-align: center;
 }
 
 #update-alert {
@@ -357,8 +362,6 @@ input[type=number] {
 }
 
 .fieldset {
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   border: 3px solid transparent;
@@ -449,14 +452,15 @@ input[type=number] {
   display: block;
 }
 
-.fieldset-wrapper.fieldset-error {
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
 .quarantine-subtitle,
 .curfew-subtitle {
   padding: 1rem 0;
+}
+
+#resultLink {
+  word-wrap: break-word;
+}
+
+#generate-link-btn, #generate-btn {
+  margin-top: 8px;
 }
