@@ -254,6 +254,13 @@ export function prepareInputs (formInputs, reasonInputs, reasonFieldsetsWrapper,
     $('#linkToAttestation').href = window.location.href.split('#')[0] + url
     $('#linkToAttestation').textContent = window.location.href.split('#')[0] + url
   })
+
+  contextWrapper.classList.remove('context-wrapper-error')
+  reasonFieldsetsWrapper.classList.toggle('hidden', false)
+
+  curfewFieldset.classList.toggle('in-quarantine', false)
+  curfewFieldset.classList.toggle('targeted', true)
+  quarantineFieldset.classList.toggle('targeted', false)
 }
 
 export function prepareForm () {
